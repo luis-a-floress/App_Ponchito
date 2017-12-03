@@ -45,7 +45,7 @@ public class Connect {
     public Connect() {
         try {
             System.out.print("Loading MySQL Driver... ");
-            Class.forName(DRIVER).newInstance();
+            Class.forName(DRIVER);
             System.out.println("loaded");
 
             System.out.print("Connecting to the database... ");
