@@ -17,14 +17,13 @@
  *
  * This class runs the Application.
  *
-*/
+ */
 
 
 
 public class Main {
 	public static void main(String[] args) {
 		Connect conn = new Connect();
-		conn.makeConn();
 		System.out.println("Conn Succ");
 		conn.close();
 		System.out.println("Conn Terminated");
