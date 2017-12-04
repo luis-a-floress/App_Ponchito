@@ -49,7 +49,8 @@ public class Connect {
             System.out.println("loaded");
 
             System.out.print("Connecting to the database... ");
-            conn = DriverManager.getConnection( CONN_URL+DB, USER, PASSWD);
+            conn = DriverManager.getConnection(CONN_URL+DB, USER, PASSWD);
+            conn.setAutoCommit(false);
             System.out.println("connected");
 
         } catch (SQLException | ClassNotFoundException e) {
