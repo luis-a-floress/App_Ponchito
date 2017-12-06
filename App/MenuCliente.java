@@ -13,21 +13,12 @@
 
 
 /*
- *				Main Class
+ *				Menu Cliente Class
  *
- * Esta clase corre la Aplication.
+ * Esta clase .
  *
  */
 
+ public class MenuCliente {
 
-
-public class Main {
-	public static void main(String[] args) {
-		Connect conn = new Connect();
-		System.out.println("Conn Succ");
-		
-		conn.close();
-		System.out.println("Conn Terminated");
-
-	}
-}
+ }
