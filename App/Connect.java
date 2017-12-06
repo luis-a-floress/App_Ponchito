@@ -1,6 +1,6 @@
 /*
  *
- *                Application Ponchito
+ *                Applicacion Ponchito
  *
  * Authors:         ID: 153542      Luis Alberto Flores
  *                  ID: 154422      Alejandro Lobato
@@ -15,7 +15,7 @@
 /*
  *              Connect Class
  *
- * This class runs connects with the database.
+ * Esta clase conecta con la base de datos.
  *
  */
 
@@ -38,24 +38,30 @@ public class Connect {
     /*
      *          Constructor
      *
-     * Makes the connection with the database
+     * Hace la conexion con la base de datos.
      *
      */
 
     public Connect() {
         try {
-            System.out.print("Loading MySQL Driver... ");
+            // Carga el Driver de MySQL
+            System.out.print("Cargando MySQL Driver... ");
             Class.forName(DRIVER);
-            System.out.println("loaded");
+            System.out.println("cargado");
 
-            System.out.print("Connecting to the database... ");
+            // Realiza la conexion con la base de datos
+            System.out.print("Conectando con la base de datos... ");
             conn = DriverManager.getConnection(CONN_URL+DB, USER, PASSWD);
+            System.out.println("conectado");
+
+            // Hace que los commits no sean automaticos, esto nos permitira
+            // manejar las transacciones con nuestro programa
             conn.setAutoCommit(false);
-            System.out.println("connected");
+
 
         } catch (SQLException | ClassNotFoundException e) {
-            System.err.println("failed");
-            conn = null;
+            System.err.println("fallo");
+            conn = null;    // Hace la conexion nula si esta llega a fallar
             e.printStackTrace(System.err);
 
         }
@@ -66,7 +72,7 @@ public class Connect {
     /*
      *          Get Connection
      *
-     * Returns the actual connection with the database
+     * Regresa la conexion actual con la base de datos.
      *
      */
 
@@ -76,18 +82,20 @@ public class Connect {
     /*
      *          Close connection
      *
-     * Closes he connection with the database
+     * Cierra la conexion con la base de datos
      *
      */
 
     public void close() {
         try {
-            System.out.print("Closing connection with the database... ");
+            // Cierra la conexion
+            System.out.print("Cerrando la conexion con la base de datos... ");
             conn.close();
-            System.out.println("closed");
+            System.out.println("cerrada");
 
         } catch (SQLException e) {
-            System.err.println("failed");
+            // Si llega a fallar al cerrar se notifica
+            System.err.println("fallo");
             e.printStackTrace(System.err);
 
         }
