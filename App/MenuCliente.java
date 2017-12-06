@@ -13,16 +13,12 @@
 
 
 /*
- *				Reservaciones Class
+ *				Menu Cliente Class
  *
- * Esta clase permite realizar las reservaciones de los viajes.
+ * Esta clase .
  *
  */
 
+ public class MenuCliente {
 
-public class Reservaciones {
-
-
-    
-
-}
+ }

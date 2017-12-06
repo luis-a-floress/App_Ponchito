@@ -13,16 +13,12 @@
 
 
 /*
- *				Reservaciones Class
+ *				Menu Agencia Class
  *
- * Esta clase permite realizar las reservaciones de los viajes.
+ * Esta clase .
  *
  */
 
-
-public class Reservaciones {
-
-
+public class MenuAgencia {
     
-
 }
