@@ -45,14 +45,14 @@ public class Connect {
     public Connect() {
         try {
             // Carga el Driver de MySQL
-            System.out.print("Cargando MySQL Driver... ");
+            //System.out.print("Cargando MySQL Driver... ");
             Class.forName(DRIVER);
-            System.out.println("cargado");
+            //System.out.println("cargado");
 
             // Realiza la conexion con la base de datos
-            System.out.print("Conectando con la base de datos... ");
+            //System.out.print("Conectando con la base de datos... ");
             conn = DriverManager.getConnection(CONN_URL+DB, USER, PASSWD);
-            System.out.println("conectado");
+            //System.out.println("conectado");
 
             // Hace que los commits no sean automaticos, esto nos permitira
             // manejar las transacciones con nuestro programa
@@ -60,7 +60,7 @@ public class Connect {
 
 
         } catch (SQLException | ClassNotFoundException e) {
-            System.err.println("fallo");
+            //System.err.println("fallo");
             conn = null;    // Hace la conexion nula si esta llega a fallar
             e.printStackTrace(System.err);
 

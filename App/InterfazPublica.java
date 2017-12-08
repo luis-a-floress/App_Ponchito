@@ -66,7 +66,8 @@ public class InterfazPublica {
 
  		switch(opcion) {
  		case 1:
- 			System.out.println("Estas en consultar viajes");
+ 			//System.out.println("Estas en consultar viajes");
+            (new Folleto()).run();
  			break;
 
  		case 2:

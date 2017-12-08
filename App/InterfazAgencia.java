@@ -96,7 +96,8 @@ public class InterfazAgencia {
  		switch(opcion) {
 
      		case 1:
-     			System.out.println("Esta en consultar folleto");
+     			//System.out.println("Esta en consultar folleto");
+                (new Folleto()).run();
      			break;
 
      		case 2:
@@ -131,7 +132,7 @@ public class InterfazAgencia {
 
     private boolean autenticacion() {
 
-        return (new Query()).validarUsuario(usuario, contra, "individual");
+        return (new Query()).validarUsuario(usuario, contra, "agencia");
 
     }
 

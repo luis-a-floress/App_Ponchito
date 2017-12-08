@@ -64,7 +64,8 @@ public class Query {
         boolean validuser = true;
         try {
             String statement = "SELECT nombre FROM cliente WHERE nombre LIKE '"
-                            + usuario + "' AND password LIKE '" + contra + "';";
+                            + usuario + "' AND password LIKE '" + contra + "'"
+                            + "AND tipo LIKE '" + tipo + "';";
             ResultSet rset = stmt.executeQuery( statement );
             if (!rset.isBeforeFirst()) validuser = false;
             rset.close();
@@ -75,6 +76,76 @@ public class Query {
         return validuser;
     }
 
+    public void consultarReservaciones(String usuario) {
+        try {
+            String statement = "SELECT * FROM reservaciones WHERE nombreUsuario LIKE '" + usuario + "';";
+
+    		ResultSet rset = stmt.executeQuery(statement);
+            System.out.println("\n\nSus Reservaciones son:");
+            dumpResultSet(rset);
+            rset.close();
+            close();
+        } catch (SQLException ex) {
+            System.out.println("\nHubo un problema al obtener las reservaciones.\n");
+        }
+
+    }
+
+    public void consultarCiudades() {
+        try {
+            String statement = "SELECT * FROM ciudad;";
+
+    		ResultSet rset = stmt.executeQuery(statement);
+            System.out.println("\n\nLas ciudades son:");
+            dumpResultSet(rset);
+            rset.close();
+            close();
+        } catch (SQLException ex) {
+            System.out.println("\nHubo un problema al obtener las ciudades.\n");
+        }
+    }
+    public void consultarCircuitos() {
+        try {
+            String statement = "SELECT * FROM circuito;";
+
+    		ResultSet rset = stmt.executeQuery(statement);
+            System.out.println("\n\nLos circuitos son:");
+            dumpResultSet(rset);
+            rset.close();
+            close();
+        } catch (SQLException ex) {
+            System.out.println("\nHubo un problema al obtener los circuitos.\n");
+        }
+
+    }
+    public void consultarLugares() {
+        try {
+            String statement = "SELECT * FROM lugaravisitar;";
+
+    		ResultSet rset = stmt.executeQuery(statement);
+            System.out.println("\n\nLos lugares a visitar son:");
+            dumpResultSet(rset);
+            rset.close();
+            close();
+        } catch (SQLException ex) {
+            System.out.println("\nHubo un problema al obtener los lugares.\n");
+        }
+
+    }
+    public void consultarHoteles() {
+        try {
+            String statement = "SELECT * FROM hotel;";
+
+    		ResultSet rset = stmt.executeQuery(statement);
+            System.out.println("\n\nLos hoteles son:");
+            dumpResultSet(rset);
+            rset.close();
+            close();
+        } catch (SQLException ex) {
+            System.out.println("\nHubo un problema al obtener lor hoteles.\n");
+        }
+
+    }
 
 
 	public void querySelect() throws SQLException {
@@ -122,7 +193,7 @@ public class Query {
 		while( rset.next() ) {
 
 			for( int j = 1; j <= i; j++ ) {
-				System.out.print( rset.getString(j) + "\t" );
+				System.out.print( rset.getString(j) + "   \t" );
 			}
 			System.out.println();
 		}

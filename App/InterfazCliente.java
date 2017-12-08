@@ -84,8 +84,8 @@ import java.util.Scanner;
 
  		switch(opcion) {
      		case 1:
-     			System.out.println("Esta en consultar reservaciones");
-                (new Query()).run();
+     			//System.out.println("Esta en consultar reservaciones");
+                (new Query()).consultarReservaciones(usuario);
      			break;
 
             case 2:
@@ -102,7 +102,7 @@ import java.util.Scanner;
  	}
 
     private boolean autenticacion() {
-        return true;
+        return (new Query()).validarUsuario(usuario, contra, "%");
 
     }
 
