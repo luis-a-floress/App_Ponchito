@@ -21,6 +21,9 @@
 
 
 import java.util.Scanner;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 
 
 public class InterfazAgencia {
@@ -29,24 +32,30 @@ public class InterfazAgencia {
     private String contra;
 
     public InterfazAgencia() {
+
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("Porfavor autenticate\n\n");
+
     }
 
     public void run() {
+
         cuenta();
 
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
         if(!autenticacion()) {
-            System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             System.err.print("\n\nNo hay un empleado registrado bajo esos datos "
                             + "o sus datos estan incorrectos.\n\n");
             return;
+
         } else {
             System.out.println("\n\n¡Gracias por su arduo trabajo " + usuario + "!");
+
         }
 
         Scanner input = new Scanner(System.in);
@@ -54,58 +63,79 @@ public class InterfazAgencia {
         do {
 			mostrarMenu();
 			opcion = input.nextInt();
-			menu(opcion);
-		} while(opcion <= 2 && opcion >= 1);
+            if(menu(opcion)) return;
+
+		} while(opcion <= 7 && opcion >= 1);
 
     }
 
- 	public void mostrarMenu(){
- 		System.out.println("\nEliga una opcion del menu");
+ 	public void mostrarMenu() {
+
+        System.out.println("\nEliga una opcion del menu:");
+
  		System.out.println("\t1.- Consultar el folleto");
+
  		System.out.println("\t2.- Reservaciones de clientes");
+
  		System.out.println("\t3.- Crear clientes");
+
  		System.out.println("\t4.- Realizar reservaciones");
+
  		System.out.println("\t5.- Validar");
- 		System.out.println("\t6.- Salir");
+
+ 		System.out.println("\t6.- Regresar");
+
+ 		System.out.println("\t7.- Salir");
+
  		System.out.print("\nOpcion: ");
+
  	}
 
- 	public void menu(int opcion) {
+    public boolean menu(int opcion) {
 
- 		switch(opcion){
- 		case 1:
- 			System.out.println("Esta en consultar folleto");
- 			break;
+ 		switch(opcion) {
 
- 		case 2:
- 			System.out.println("Esta en reservaciones de clientes");
- 			break;
+     		case 1:
+     			System.out.println("Esta en consultar folleto");
+     			break;
 
- 		case 3:
- 			System.out.println("Esta en crear clientes");
- 			break;
+     		case 2:
+     			System.out.println("Esta en reservaciones de clientes");
+     			break;
 
- 		case 4:
- 			System.out.println("Esta en realizar reservaciones");
- 			break;
+     		case 3:
+     			System.out.println("Esta en crear clientes");
+     			break;
 
- 		case 5:
- 			System.out.println("Esta en validar");
- 			break;
+     		case 4:
+     			System.out.println("Esta en realizar reservaciones");
+     			break;
 
- 		case 6:
- 			System.out.println("\n\n\n!Nos vemos a la Proxima!\n\n\n");
- 			System.exit(0);
- 			break;
+     		case 5:
+     			System.out.println("Esta en validar");
+     			break;
+
+     		case 6:
+     			return true;
+
+     		case 7:
+     			System.out.println("\n\n\n!Nos vemos a la Proxima!\n\n\n");
+     			System.exit(0);
+     			break;
+
  		}
+
+ 		return false;
+
  	}
 
     private boolean autenticacion() {
-        return true;
+
+        return (new Query()).validarUsuario(usuario, contra, "individual");
 
     }
 
-    private void cuenta(){
+    private void cuenta() {
 
         Scanner input = new Scanner(System.in);
 
@@ -115,6 +145,7 @@ public class InterfazAgencia {
             System.out.println("El Usuario proporcionado excede las 12 letras.\n");
             System.out.print("Ingresa de nuevo el usuario: ");
 		    usuario = input.nextLine();
+
         }
 
 		System.out.print("Introduzca su Contrasena no mayor a 12 letras: ");
@@ -123,8 +154,10 @@ public class InterfazAgencia {
             System.out.println("La contraseña proporcionada excede las 12 letras.\n");
             System.out.print("Ingresa de nuevo la contrasena: ");
 		    contra = input.nextLine();
+
         }
 
 	}
+
 
  }

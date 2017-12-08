@@ -19,35 +19,6 @@
  *
  */
 
-/*import java.io.*;
-
-public class InterfazGlobal {
-
-    BufferedReader in = null;
-
-    public InterfazGlobal() {
-        in = new BufferedReader( new InputStreamReader(System.in) );
-
-    }
-
-    public void displayMenu() {
-        System.out.println("¡Bienvenido a Agencia de Viajes PONCHITO!");
-        System.out.println("\n\t¿Primera vez que nos visita? (y/n)");
-        String ans = "";
-        try {
-            ans = in.readLine();
-        } catch(IOException ex) {
-            System.err.println(ex);
-        }
-        if(ans.equals("y")) {
-            System.out.print("Cargando interfaz publica... ");
-            System.out.println("cargada");
-        } else {
-            System.out.print("Cargando interfaz cliente... ");
-            System.out.println("cargada");
-        }
-    }
-}*/
 
 import java.util.Scanner;
 
@@ -62,7 +33,7 @@ public class InterfazGlobal {
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("¡Bienvenido a Agencia de Viajes PONCHITO!\n\n\n");
+        System.out.println("¡Bienvenido a Agencia de Viajes PONCHITO!");
     }
 
 	public void run() {
@@ -76,7 +47,7 @@ public class InterfazGlobal {
 	}
 
 	private void mostrarMenu(){
-		System.out.println("Eliga una opcion del menu:\n");
+		System.out.println("\n\n\nEliga una opcion del menu:\n");
 		System.out.println("\t1.- Acceso Ponchito Clientes");
 		System.out.println("\t2.- Acceso Ponchito Empleados");
 		System.out.println("\t3.- Acceso sin cuenta");
