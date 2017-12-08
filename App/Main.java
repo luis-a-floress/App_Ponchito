@@ -23,11 +23,12 @@
 
 public class Main {
 	public static void main(String[] args) {
-		Connect conn = new Connect();
+		/*Connect conn = new Connect();
 		System.out.println("Conn Succ");
-		
+
 		conn.close();
-		System.out.println("Conn Terminated");
+		System.out.println("Conn Terminated");*/
+		(new InterfazGlobal()).run();
 
 	}
 }
