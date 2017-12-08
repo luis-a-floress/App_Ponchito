@@ -46,7 +46,7 @@ public class InterfazPublica {
 		} while(opcion <= 4 && opcion >= 1);
 	}
 
- 	public void mostrarMenu() {
+ 	private void mostrarMenu() {
 
         System.out.println("\nEliga una opcion del menu:");
 
@@ -62,7 +62,7 @@ public class InterfazPublica {
 
  	}
 
- 	public boolean menu(int opcion) {
+ 	private boolean menu(int opcion) {
 
  		switch(opcion) {
  		case 1:
@@ -71,7 +71,8 @@ public class InterfazPublica {
  			break;
 
  		case 2:
- 			System.out.println("Estas en simular una reservacion");
+ 			//System.out.println("Estas en simular una reservacion");
+            (new Simulacion()).run();
  			break;
 
         case 3:

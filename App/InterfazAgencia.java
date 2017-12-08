@@ -69,7 +69,7 @@ public class InterfazAgencia {
 
     }
 
- 	public void mostrarMenu() {
+ 	private void mostrarMenu() {
 
         System.out.println("\nEliga una opcion del menu:");
 
@@ -91,7 +91,7 @@ public class InterfazAgencia {
 
  	}
 
-    public boolean menu(int opcion) {
+    private boolean menu(int opcion) {
 
  		switch(opcion) {
 
